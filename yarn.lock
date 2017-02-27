@@ -3484,6 +3484,10 @@ react-native:
     xmldoc "^0.4.0"
     yargs "^6.4.0"
 
+react-native-gesture-password:
+  version "0.2.0"
+  resolved "http://registry.npm.taobao.org/react-native-gesture-password/download/react-native-gesture-password-0.2.0.tgz#938455ff2214cae6c9b5f676c3a692195ef516c4"
+
 react-proxy@^1.1.7:
   version "1.1.8"
   resolved "http://registry.npm.taobao.org/react-proxy/download/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"
