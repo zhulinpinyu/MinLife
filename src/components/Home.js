@@ -82,12 +82,14 @@ const styles = {
     fontFamily: 'PingFangHK-Semibold'
   },
   valueStyle: {
+    marginHorizontal: 10,
     fontSize: 20,
     color: '#14668a',
     fontFamily: 'ChalkboardSE-Bold'
   },
   body: {
-    flex: 7
+    flex: 7,
+    backgroundColor: '#badcba'
   },
   addButton: {
 
