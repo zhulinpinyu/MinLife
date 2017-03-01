@@ -57,7 +57,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <Container style={styles.container}>
+      <Container>
         <Content>
           {this.renderTabScreen()}
         </Content>
