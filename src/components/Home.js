@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
-import { Dimensions, View, Text } from 'react-native'
+import { Dimensions, View } from 'react-native'
+import {
+  Button,
+  Icon,
+  Text,
+  ListItem,
+  Body,
+  Left,
+  Right,
+  List,
+  Thumbnail
+} from 'native-base'
 
 const { height } = Dimensions.get('window')
 
 export default class Home extends Component {
+
   render() {
     const {
       container,
@@ -16,6 +28,9 @@ export default class Home extends Component {
       addButton,
       journal
     } = styles
+
+    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
+
     return (
       <View style={container}>
         <View style={overview}>
@@ -40,14 +55,33 @@ export default class Home extends Component {
         </View>
         <View style={body}>
           <View style={addButton}>
-            <Text>
-              +
-            </Text>
+            <Button iconLeft block success>
+                <Icon name='ios-add-outline' />
+                <Text>
+                  记一笔
+                </Text>
+            </Button>
           </View>
           <View style={journal}>
-            <Text>
-              List
-            </Text>
+            <List
+              dataArray={items}
+              renderRow={(data) =>
+                <ListItem avatar>
+                  <Left>
+                    <Thumbnail />
+                  </Left>
+                  <Body>
+                    <Text>{data}</Text>
+                    <Text note>
+                      Doing what you like will always keep you happy . .
+                    </Text>
+                  </Body>
+                  <Right>
+                    <Text note>3:43 pm</Text>
+                  </Right>
+                </ListItem>
+              }
+            />
           </View>
         </View>
       </View>
@@ -58,7 +92,7 @@ export default class Home extends Component {
 const styles = {
   container: {
     flexDirection: 'column',
-    height
+    height: height - 66
   },
   overview: {
     flex: 2,
@@ -89,12 +123,13 @@ const styles = {
   },
   body: {
     flex: 7,
-    backgroundColor: '#badcba'
+    //backgroundColor: '#badcba'
   },
   addButton: {
-
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
   journal: {
-
+    marginBottom: 66
   }
 }
