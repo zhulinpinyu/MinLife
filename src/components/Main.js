@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { View, Text } from 'react-native'
 import {
   Container,
@@ -10,18 +11,16 @@ import {
 } from 'native-base'
 
 import Home from './Home'
+import { activeTabBar } from '../actions/'
 
-export default class Main extends Component {
-  state = {
-    activeTab: 'home'
-  }
+class Main extends Component {
 
   isActive(tab) {
-    return this.state.activeTab === tab
+    return this.props.currentTabBar.identifier === tab
   }
 
   renderTabScreen() {
-    switch (this.state.activeTab) {
+    switch (this.props.currentTabBar.identifier) {
       case 'home':
         return (
           <Home />
@@ -64,9 +63,9 @@ export default class Main extends Component {
         <Footer >
           <FooterTab>
             <Button
-              active={this.state.activeTab === 'home'}
+              active={this.isActive('home')}
               style={styles.tabBtn}
-              onPress={() => this.setState({ activeTab: 'home' })}
+              onPress={() => this.props.activeTabBar('home')}
             >
               <Icon
                 name={this.isActive('home') ? 'ios-home' : 'ios-home-outline'}
@@ -74,9 +73,9 @@ export default class Main extends Component {
               <Text>主页</Text>
             </Button>
             <Button
-              active={this.state.activeTab === 'account'}
+              active={this.isActive('account')}
               style={styles.tabBtn}
-              onPress={() => this.setState({ activeTab: 'account' })}
+              onPress={() => this.props.activeTabBar('account')}
             >
               <Icon
                 name={this.isActive('account') ? 'ios-card' : 'ios-card-outline'}
@@ -84,9 +83,9 @@ export default class Main extends Component {
               <Text>账户</Text>
             </Button>
             <Button
-              active={this.state.activeTab === 'stats'}
+              active={this.isActive('stats')}
               style={styles.tabBtn}
-              onPress={() => this.setState({ activeTab: 'stats' })}
+              onPress={() => this.props.activeTabBar('stats')}
             >
               <Icon
                 name={this.isActive('stats') ? 'ios-stats' : 'ios-stats-outline'}
@@ -94,9 +93,9 @@ export default class Main extends Component {
               <Text>图表</Text>
             </Button>
             <Button
-              active={this.state.activeTab === 'person'}
+              active={this.isActive('person')}
               style={styles.tabBtn}
-              onPress={() => this.setState({ activeTab: 'person' })}
+              onPress={() => this.props.activeTabBar('person')}
             >
               <Icon
                 name={this.isActive('person') ? 'ios-person' : 'ios-person-outline'}
@@ -118,3 +117,13 @@ const styles = {
     borderRadius: 0
   }
 }
+
+const mapStateToProps = ({ currentTabBar }) => {
+  return {
+    currentTabBar
+  }
+}
+
+export default connect(mapStateToProps, {
+  activeTabBar
+})(Main)
