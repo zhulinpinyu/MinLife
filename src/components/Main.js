@@ -11,6 +11,7 @@ import {
 } from 'native-base'
 
 import Home from './Home'
+import Account from './Account'
 import { activeTabBar } from '../actions/'
 
 class Main extends Component {
@@ -27,11 +28,7 @@ class Main extends Component {
         )
       case 'account':
         return (
-          <View>
-            <Text>
-              account
-            </Text>
-          </View>
+          <Account />
         )
       case 'stats':
         return (
