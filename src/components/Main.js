@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text } from 'react-native'
-import {
-  Container,
-  Content,
-  Footer,
-  FooterTab,
-  Button,
-  Icon
-} from 'native-base'
+import { TabBarIOS, Text, View } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import Home from './Home'
+import Account from './Account'
 import { activeTabBar } from '../actions/'
 
 class Main extends Component {
-
   isActive(tab) {
     return this.props.currentTabBar.identifier === tab
   }
 
-  renderTabScreen() {
+  renderTabContent() {
     switch (this.props.currentTabBar.identifier) {
       case 'home':
         return (
@@ -27,11 +21,7 @@ class Main extends Component {
         )
       case 'account':
         return (
-          <View>
-            <Text>
-              account
-            </Text>
-          </View>
+          <Account />
         )
       case 'stats':
         return (
@@ -56,65 +46,49 @@ class Main extends Component {
 
   render() {
     return (
-      <Container>
-        <Content>
-          {this.renderTabScreen()}
-        </Content>
-        <Footer >
-          <FooterTab>
-            <Button
-              active={this.isActive('home')}
-              style={styles.tabBtn}
-              onPress={() => this.props.activeTabBar('home')}
-            >
-              <Icon
-                name={this.isActive('home') ? 'ios-home' : 'ios-home-outline'}
-              />
-              <Text>主页</Text>
-            </Button>
-            <Button
-              active={this.isActive('account')}
-              style={styles.tabBtn}
-              onPress={() => this.props.activeTabBar('account')}
-            >
-              <Icon
-                name={this.isActive('account') ? 'ios-card' : 'ios-card-outline'}
-              />
-              <Text>账户</Text>
-            </Button>
-            <Button
-              active={this.isActive('stats')}
-              style={styles.tabBtn}
-              onPress={() => this.props.activeTabBar('stats')}
-            >
-              <Icon
-                name={this.isActive('stats') ? 'ios-stats' : 'ios-stats-outline'}
-              />
-              <Text>图表</Text>
-            </Button>
-            <Button
-              active={this.isActive('person')}
-              style={styles.tabBtn}
-              onPress={() => this.props.activeTabBar('person')}
-            >
-              <Icon
-                name={this.isActive('person') ? 'ios-person' : 'ios-person-outline'}
-              />
-              <Text>我</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+      <TabBarIOS
+        tinColor='white'
+        barTinColor='darkslateblue'
+        unselectedTinColor='yellow'
+      >
+        <Icon.TabBarItemIOS
+          title="主页"
+          iconName="ios-home-outline"
+          selectedIconName="ios-home"
+          selected={this.isActive('home')}
+          onPress={() => this.props.activeTabBar('home')}
+        >
+          {this.renderTabContent()}
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
+          title="账户"
+          iconName="ios-card-outline"
+          selectedIconName="ios-card"
+          selected={this.isActive('account')}
+          onPress={() => this.props.activeTabBar('account')}
+        >
+          {this.renderTabContent()}
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
+          title="图表"
+          iconName="ios-stats-outline"
+          selectedIconName="ios-stats"
+          selected={this.isActive('stats')}
+          onPress={() => this.props.activeTabBar('stats')}
+        >
+          {this.renderTabContent()}
+        </Icon.TabBarItemIOS>
+        <Icon.TabBarItemIOS
+          title="我"
+          iconName="ios-person-outline"
+          selectedIconName="ios-person"
+          selected={this.isActive('person')}
+          onPress={() => this.props.activeTabBar('person')}
+        >
+          {this.renderTabContent()}
+        </Icon.TabBarItemIOS>
+      </TabBarIOS>
     )
-  }
-}
-
-const styles = {
-  container: {
-    paddingTop: 10
-  },
-  tabBtn: {
-    borderRadius: 0
   }
 }
 

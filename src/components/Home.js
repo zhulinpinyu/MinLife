@@ -4,11 +4,11 @@ import {
   Button,
   Icon,
   Text,
+  List,
   ListItem,
   Body,
   Left,
   Right,
-  List,
   Thumbnail
 } from 'native-base'
 
@@ -16,7 +16,27 @@ const { height } = Dimensions.get('window')
 
 export default class Home extends Component {
 
+  renderRow(data) {
+    return (
+      <ListItem avatar>
+        <Left>
+          <Thumbnail />
+        </Left>
+        <Body>
+          <Text>{data}</Text>
+          <Text note>
+            Doing what you like will always keep you happy . .
+          </Text>
+        </Body>
+        <Right>
+          <Text note>3:43 pm</Text>
+        </Right>
+      </ListItem>
+    )
+  }
+
   render() {
+    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
     const {
       container,
       overview,
@@ -28,8 +48,6 @@ export default class Home extends Component {
       addButton,
       journal
     } = styles
-
-    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
 
     return (
       <View style={container}>
@@ -65,22 +83,7 @@ export default class Home extends Component {
           <View style={journal}>
             <List
               dataArray={items}
-              renderRow={(data) =>
-                <ListItem avatar>
-                  <Left>
-                    <Thumbnail />
-                  </Left>
-                  <Body>
-                    <Text>{data}</Text>
-                    <Text note>
-                      Doing what you like will always keep you happy . .
-                    </Text>
-                  </Body>
-                  <Right>
-                    <Text note>3:43 pm</Text>
-                  </Right>
-                </ListItem>
-              }
+              renderRow={this.renderRow}
             />
           </View>
         </View>
@@ -92,7 +95,7 @@ export default class Home extends Component {
 const styles = {
   container: {
     flexDirection: 'column',
-    height: height - 66
+    height: height - 50
   },
   overview: {
     flex: 2,
