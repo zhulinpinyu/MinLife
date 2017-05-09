@@ -46,7 +46,8 @@ export default class Home extends Component {
           <View style={addButton}>
             <Button
               title='记一笔'
-              icon={{ name: 'ios-add-outline', type: 'ionicon' }}
+              icon={{ name: 'ios-brush', type: 'ionicon', size: 30 }}
+              backgroundColor='#03A9F4'
             />
           </View>
           <ScrollView style={journal}>
