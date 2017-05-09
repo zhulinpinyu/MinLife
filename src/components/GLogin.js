@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Alert } from 'react-native'
 import GesturePassword from 'react-native-gesture-password'
 
 export default class GLogin extends Component {
@@ -15,14 +14,13 @@ export default class GLogin extends Component {
         status: 'right',
         message: '解锁🔓成功'
       })
-      Alert.alert('解锁🔓成功')
+      this.props.onUnlockSuccess()
     } else {
       this.setState({
         status: 'wrong',
         message: '解锁🔓失败，请重试',
         interval: 2000
       })
-      Alert.alert('解锁🔓失败')
     }
   }
 
