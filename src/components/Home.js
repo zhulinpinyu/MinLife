@@ -1,42 +1,13 @@
 import React, { Component } from 'react'
-import { Dimensions, View } from 'react-native'
-import {
-  Button,
-  Icon,
-  Text,
-  List,
-  ListItem,
-  Body,
-  Left,
-  Right,
-  Thumbnail
-} from 'native-base'
+import { Dimensions, View, Text, ScrollView } from 'react-native'
+import { Button, List, ListItem } from 'react-native-elements'
 
 const { height } = Dimensions.get('window')
 
 export default class Home extends Component {
 
-  renderRow(data) {
-    return (
-      <ListItem avatar>
-        <Left>
-          <Thumbnail />
-        </Left>
-        <Body>
-          <Text>{data}</Text>
-          <Text note>
-            Doing what you like will always keep you happy . .
-          </Text>
-        </Body>
-        <Right>
-          <Text note>3:43 pm</Text>
-        </Right>
-      </ListItem>
-    )
-  }
-
   render() {
-    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
+    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345, 'Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
     const {
       container,
       overview,
@@ -73,19 +44,26 @@ export default class Home extends Component {
         </View>
         <View style={body}>
           <View style={addButton}>
-            <Button iconLeft block success>
-                <Icon name='ios-add-outline' />
-                <Text>
-                  记一笔
-                </Text>
-            </Button>
-          </View>
-          <View style={journal}>
-            <List
-              dataArray={items}
-              renderRow={this.renderRow}
+            <Button
+              title='记一笔'
+              icon={{ name: 'ios-add-outline', type: 'ionicon' }}
             />
           </View>
+          <ScrollView style={journal}>
+            <List>
+              {
+                items.map((item, i) => {
+                  return (
+                    <ListItem
+                      key={i}
+                      title={item}
+                      leftIcon={{ name: 'ios-person', type: 'ionicon' }}
+                    />
+                  )
+                })
+              }
+            </List>
+          </ScrollView>
         </View>
       </View>
     )
@@ -133,6 +111,6 @@ const styles = {
     marginHorizontal: 10,
   },
   journal: {
-    marginBottom: 66
+    marginBottom: 0
   }
 }
