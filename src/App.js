@@ -27,7 +27,7 @@ export default class App extends Component {
         }, {
           tabBarOptions: {
             labelStyle: {
-              fontSize: 13
+              fontSize: 12
             }
           }
         })
