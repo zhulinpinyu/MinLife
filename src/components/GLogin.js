@@ -8,6 +8,11 @@ export default class GLogin extends Component {
     interval: 0
   }
 
+  componentWillMount() {
+    // 临时措施跳过 手势登录的步骤
+    this.props.onUnlockSuccess()
+  }
+
   onEnd(password) {
     if (password === '1235789') {
       this.setState({
