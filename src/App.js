@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import { TabNavigator } from 'react-navigation'
-// import { Provider } from 'react-redux'
-// import { createStore } from 'redux'
-
-//import GLogin from './components/GLogin'
-//import Main from './components/Main'
+import { Provider } from 'react-redux'
 
 import AuthScreen from './screens/AuthScreen'
 import HomeScreen from './screens/HomeScreen'
@@ -12,7 +8,7 @@ import AccountScreen from './screens/AccountScreen'
 import StatsScreen from './screens/StatsScreen'
 import ProfileScreen from './screens/ProfileScreen'
 
-//import reducers from './reducers/'
+import store from './store'
 
 export default class App extends Component {
   render() {
@@ -39,7 +35,9 @@ export default class App extends Component {
       lazy: true
     })
     return (
-      <MainNavigator />
+      <Provider store={store}>
+        <MainNavigator />
+      </Provider>
     )
   }
 }
