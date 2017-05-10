@@ -20,7 +20,7 @@ class HomeScreen extends Component {
   }
 
   render() {
-    const items = ['Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345, 'Simon Mignolet', 'Nathaniel Clyne', 'Dejan Lovren', 'Mama Sakho', 'Emre Can', 'Simon', 'Harly', 12345]
+    const items = ['Simon Mignolet', 'Nathaniel Clyne']
 
     return (
       <Grid>
@@ -28,15 +28,17 @@ class HomeScreen extends Component {
           <Summary />
         </Row>
         <Row size={1}>
-          <View style={{ flex: 1, marginTop: 10 }}>
+          <View style={{ flex: 1, marginTop: 5 }}>
             <Button
+              raised
               title='记一笔'
               icon={{ name: 'ios-brush', type: 'ionicon', size: 30 }}
               backgroundColor='#03A9F4'
+              textStyle={{ fontSize: 23, fontWeight: '800', marginHorizontal: 20 }}
             />
           </View>
         </Row>
-        <Row size={8}>
+        <Row size={10}>
           <ScrollView>
             <List>
               {
