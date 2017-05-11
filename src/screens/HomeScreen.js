@@ -6,7 +6,7 @@ import Summary from '../components/Summary'
 
 class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Home',
+    header: null,
     tabBarIcon: ({ focused, tintColor }) => {
       return (
         <Icon
@@ -30,11 +30,11 @@ class HomeScreen extends Component {
         <Row size={1}>
           <View style={{ flex: 1, marginTop: 5 }}>
             <Button
-              raised
               title='记一笔'
               icon={{ name: 'md-add', type: 'ionicon', size: 30 }}
               backgroundColor='#03A9F4'
               textStyle={{ fontSize: 23, fontWeight: '800', marginHorizontal: 10 }}
+              onPress={() => this.props.navigation.navigate('newRecord')}
             />
           </View>
         </Row>
