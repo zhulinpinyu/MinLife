@@ -3067,7 +3067,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moment@2.x.x:
+moment, moment@2.x.x:
   version "2.18.1"
   resolved "http://registry.npm.taobao.org/moment/download/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -4250,6 +4250,22 @@ table@^3.7.8:
     lodash "^4.0.0"
     slice-ansi "0.0.4"
     string-width "^2.0.0"
+
+tcomb-form-native:
+  version "0.6.8"
+  resolved "http://registry.npm.taobao.org/tcomb-form-native/download/tcomb-form-native-0.6.8.tgz#fccdd117d2712c338f6c3aae943690ec7357f061"
+  dependencies:
+    tcomb-validation "^3.0.0"
+
+tcomb-validation@^3.0.0:
+  version "3.3.0"
+  resolved "http://registry.npm.taobao.org/tcomb-validation/download/tcomb-validation-3.3.0.tgz#29ada8534203500e90b245eedd0e1a80f1909ba2"
+  dependencies:
+    tcomb "^3.0.0"
+
+tcomb@^3.0.0:
+  version "3.2.20"
+  resolved "http://registry.npm.taobao.org/tcomb/download/tcomb-3.2.20.tgz#823e689dcf3518d82c4b6c890a822aa6916692cd"
 
 temp@0.8.3:
   version "0.8.3"
