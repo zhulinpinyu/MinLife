@@ -5,7 +5,7 @@ import GLogin from '../components/GLogin'
 class AuthScreen extends Component {
 
   onUnlockSuccess = () => {
-    this.props.navigation.navigate('home')
+    this.props.navigation.navigate('account')
   }
 
   render() {

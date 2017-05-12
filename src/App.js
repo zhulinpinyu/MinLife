@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import AuthScreen from './screens/AuthScreen'
 import HomeScreen from './screens/HomeScreen'
 import NewRecordScreen from './screens/NewRecordScreen'
-import AccountScreen from './screens/AccountScreen'
+//import AccountScreen from './screens/AccountScreen'
 import StatsScreen from './screens/StatsScreen'
 import ProfileScreen from './screens/ProfileScreen'
 
@@ -22,7 +22,7 @@ export default class App extends Component {
 
     const MainNavigator = TabNavigator({
       home: { screen: HomeNavigator },
-      account: { screen: AccountScreen },
+      account: { screen: NewRecordScreen },
       stats: { screen: StatsScreen },
       profile: { screen: ProfileScreen },
     }, {
